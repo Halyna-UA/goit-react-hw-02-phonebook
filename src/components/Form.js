@@ -29,11 +29,11 @@ reset = () => {
 
 render(){
 
-    const {name, number} = this.state;
+ const {name, number} = this.state;
 
     return( 
     <div>
-        <Form>
+        <Form onSubmit={this.handleSubmit}>
             <label>
                 name
                     <input
