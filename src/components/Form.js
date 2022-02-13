@@ -33,7 +33,7 @@ render(){
 
     return( 
     <div>
-        <Form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
             <label>
                 name
                     <input
@@ -58,7 +58,7 @@ render(){
                 />
             </label>
             <button type="submit">Add contact</button>
-        </Form>
+        </form>
     </div>
     );
     }

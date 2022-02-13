@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { nanoid } from 'nanoid'
-// import Form from "./components/Form";
+import { nanoid } from 'nanoid';
+import Form from "./components/Form";
 import Filter from './components/Filter';
+ import ContactsItem from './components/ContactsItem';
 
-
-// import PropTypes from 'prop-types';
 
 
 class App extends Component {
+
     generationId = nanoid()
   state = {
     contacts: [
@@ -30,15 +30,16 @@ class App extends Component {
     if (findOldContact === newContact){
       return(
         
-        alert(`${newContact.name} is already in contacts`));
-    } else {
-      findOldContact !== newContact {
+        alert(`${newContact.name} is already in contacts`)
+        );
+    } else if 
+      (findOldContact !== newContact) {
         newContact.id = nanoid();
 
         this.setState((prevState) => ({
           contacts: [...prevState, ...newContact]
         }));
-      }
+      
     }
   };
 
@@ -46,59 +47,35 @@ changeFilter = (e) => {
   this.setState({filter: e.currentTarget.value});
 };
 
-//   введення даних
-handleInputCgange = e =>{
-    const {name, value} = e.currentTarget
-    this.setState({[name]: value});
-}
-// підтвердження форми
-handleSubmit = e => {
-    e.preventDefault()
-    this.reset()
-    this.setState({name: "", number: ""})
-    this.props.onSubmit({...this.state})
-}
-// очищення полів вводу
-reset = () => {
-  this.setState({ name: "", number:"" });
+
+deleteContactItem = (contactId) => {
+  this.setState(prevState => ({
+    contacts: prevState.contacts.filter(i => i.id !== contactId)
+  }))
 }
 
 render(){
 
- const {name, number} = this.state;
- const {contacts, filter} = this.state;
+  const {filter} = this.state;
     return( 
-    <div>
-        <form onSubmit={this.handleSubmit}>
-            <label>
-                name
-                    <input
-                type="text"
-                name="name"
-                pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                required
-                onChange={this.handleInputCgange} value={name}
-                />
-            </label>
-
-            <label>
-                number
-                    <input
-                type="tel"
-                name="number"
-                pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-                required
-                onChange={this.handleInputCgange} value={number}
-                />
-            </label>
-            <button type="submit">Add contact</button>
-        </form>
+      <div>
+      <h1>Phonebook</h1>
+      <Form onSubmit={this.handleFormSubmit}/>
+    
+      <h2>Contacts</h2>
+      <Filter value={filter} onChange={this.changeFilter}/>
+      <ContactsItem contacts={this.contacts} onChange={this.deleteContactItem}/>
     </div>
     );
     }
 }
+
+
+
+
+
+
+
 
 // Form.propTypes = {
 //     generationId: PropTypes.string.isRequired,
