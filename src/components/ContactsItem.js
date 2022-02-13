@@ -2,6 +2,8 @@ import React from 'react';
 import Contacts from './Contacts'
 import PropTypes from 'prop-types';
 
+
+//видалення елемента списку контактів
 const ContactsItem = ({contacts, onDelete}) => {
     <ul>
         {contacts.map(({ id, name, number}) => (
