@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid'
 import PropTypes from 'prop-types';
-
+// import {FormBox, Input} from './Form.styled';
 
 class Form extends Component {
     generationId = nanoid()

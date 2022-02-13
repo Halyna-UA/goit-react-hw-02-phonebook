@@ -5,14 +5,16 @@ import PropTypes from 'prop-types';
 
 //видалення елемента списку контактів
 const ContactsItem = ({contacts, onDelete}) => {
+    return (
     <ul>
-        {contacts.map(({ id, name, number}) => (
+        {contacts.map(({ id, name, number}) => { 
+            return(
             <li key={id}>
                 <Contacts name={name} number={number}/>
                 <button onClick={() => onDelete(id)}>Delete</button>
             </li>
-        ))}
-    </ul>
+        )})}
+    </ul>)
 }
 
 ContactsItem.propTypes = {

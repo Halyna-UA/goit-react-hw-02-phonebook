@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import Form from "./components/Form";
-import Filter from './components/Filter';
+ import Form from "./components/Form";
+ import Filter from './components/Filter';
 import ContactsItem from './components/ContactsItem';
 import { nanoid } from 'nanoid';
 
@@ -62,10 +62,11 @@ render(){
       <div>
         <div>
           <h1>Phonebook</h1>
-          <Form handleSubmit={this.handleFormSubmit}/>
+          <Form handleSubmit={this.handleFormSubmit}/> 
         </div>
         <div>
           <h2>Contacts</h2>
+          <p>Find contacts by name</p>
           <Filter value={filter} onChange={this.changeFilter}/>
           <ContactsItem contacts={filteredContacts} onDelete={this.deleteContactItem}/>
         </div>
