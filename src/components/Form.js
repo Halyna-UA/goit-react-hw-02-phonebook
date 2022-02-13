@@ -33,7 +33,7 @@ render(){
 
     return( 
     <div>
-        <form onSubmit={this.handleSubmit}>
+        <form  onSubmit={this.handleSubmit}>
             <label>
                 name
                     <input

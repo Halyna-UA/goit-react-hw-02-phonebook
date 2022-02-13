@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { nanoid } from 'nanoid';
+
 import Form from "./components/Form";
 import Filter from './components/Filter';
- import ContactsItem from './components/ContactsItem';
-
+import ContactsItem from './components/ContactsItem';
+import { nanoid } from 'nanoid';
 
 
 class App extends Component {
@@ -56,15 +56,19 @@ deleteContactItem = (contactId) => {
 
 render(){
 
-  const {filter} = this.state;
+  const {contacts, filter} = this.state;
+  const filteredContacts = contacts.filter((contact) => contact.name.toLowerCase().includes(filter.toLowerCase()))
     return( 
       <div>
-      <h1>Phonebook</h1>
-      <Form onSubmit={this.handleFormSubmit}/>
-    
-      <h2>Contacts</h2>
-      <Filter value={filter} onChange={this.changeFilter}/>
-      <ContactsItem contacts={this.contacts} onChange={this.deleteContactItem}/>
+        <div>
+          <h1>Phonebook</h1>
+          <Form handleSubmit={this.handleFormSubmit}/>
+        </div>
+        <div>
+          <h2>Contacts</h2>
+          <Filter value={filter} onChange={this.changeFilter}/>
+          <ContactsItem contacts={filteredContacts} onDelete={this.deleteContactItem}/>
+        </div>
     </div>
     );
     }
