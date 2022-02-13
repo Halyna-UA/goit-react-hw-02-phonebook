@@ -1,20 +1,20 @@
 import React from 'react';
 import Contacts from './Contacts'
 import PropTypes from 'prop-types';
-
+import {List, Item } from './ContactsItem.styled'
 
 //видалення елемента списку контактів
 const ContactsItem = ({contacts, onDelete}) => {
     return (
-    <ul>
+    <List>
         {contacts.map(({ id, name, number}) => { 
             return(
-            <li key={id}>
+            <Item key={id}>
                 <Contacts name={name} number={number}/>
                 <button onClick={() => onDelete(id)}>Delete</button>
-            </li>
+            </Item>
         )})}
-    </ul>)
+    </List>)
 }
 
 ContactsItem.propTypes = {

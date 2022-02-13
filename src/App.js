@@ -4,7 +4,7 @@ import React, { Component } from 'react';
  import Filter from './components/Filter';
 import ContactsItem from './components/ContactsItem';
 import { nanoid } from 'nanoid';
-
+import {MainContainer, MainTitle, TitleContacts,Article} from './App.styled.js'
 
 class App extends Component {
 
@@ -59,18 +59,18 @@ render(){
   const {contacts, filter} = this.state;
   const filteredContacts = contacts.filter((contact) => contact.name.toLowerCase().includes(filter.toLowerCase()))
     return( 
-      <div>
+      <MainContainer>
         <div>
-          <h1>Phonebook</h1>
+          <MainTitle>Phonebook</MainTitle>
           <Form handleSubmit={this.handleFormSubmit}/> 
         </div>
         <div>
-          <h2>Contacts</h2>
-          <p>Find contacts by name</p>
+          <TitleContacts>Contacts</TitleContacts>
+          <Article>Find contacts by name</Article>
           <Filter value={filter} onChange={this.changeFilter}/>
           <ContactsItem contacts={filteredContacts} onDelete={this.deleteContactItem}/>
         </div>
-    </div>
+    </MainContainer>
     );
     }
 }

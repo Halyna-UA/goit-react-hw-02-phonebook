@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import {Input } from './Filter.styled'
 // фільтрація введених value 
 const Filter = ({value, onChange}) => {
     return(
         <div>
-            <input
+            <Input
                 type="text"
                 name="filter"
                 onChange={onChange} 

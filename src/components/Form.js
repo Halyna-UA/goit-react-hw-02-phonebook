@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid'
 import PropTypes from 'prop-types';
-// import {FormBox, Input} from './Form.styled';
+import {FormBox, Input, Container, Label, Button} from './Form.styled.js';
 
 class Form extends Component {
     generationId = nanoid()
@@ -32,11 +32,11 @@ render(){
  const {name, number} = this.state;
 
     return( 
-    <div>
-        <form  onSubmit={this.handleSubmit}>
-            <label>
+    <Container>
+        <FormBox  onSubmit={this.handleSubmit}>
+            <Label>
                 name
-                    <input
+                    <Input
                 type="text"
                 name="name"
                 pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -44,11 +44,11 @@ render(){
                 required
                 onChange={this.handleInputCgange} value={name}
                 />
-            </label>
+            </Label>
 
-            <label>
+            <Label>
                 number
-                    <input
+                    <Input
                 type="tel"
                 name="number"
                 pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -56,10 +56,10 @@ render(){
                 required
                 onChange={this.handleInputCgange} value={number}
                 />
-            </label>
-            <button type="submit">Add contact</button>
-        </form>
-    </div>
+            </Label>
+            <Button type="submit">Add contact</Button>
+        </FormBox>
+    </Container>
     );
     }
 }
