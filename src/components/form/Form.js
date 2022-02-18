@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import {FormBox, Input, Container, Label, Button} from './Form.styled.js';
 
 class Form extends Component {
-    generationId = nanoid()
+    generationId = nanoid();
+    generationPhoneId = nanoid()
+    
   state = {
     name: "",
     number: ""
@@ -20,7 +22,8 @@ handleSubmit = e => {
     e.preventDefault()
     this.reset()
     this.setState({name: "", number: ""})
-    this.props.onSubmit({...this.state})
+    // this.props.onSubmit({...this.state})
+    this.props.onSubmit(this.state)
 }
 // очищення полів вводу
 reset = () => {
@@ -34,7 +37,7 @@ render(){
     return( 
     <Container>
         <FormBox  onSubmit={this.handleSubmit}>
-            <Label>
+            <Label htmlFor={this.generationId}>
                 name
                     <Input
                 type="text"
@@ -42,11 +45,13 @@ render(){
                 pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                 title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                 required
+                // id={this.generationId}
+                // value={this.state.name}
                 onChange={this.handleInputCgange} value={name}
                 />
             </Label>
 
-            <Label>
+            <Label htmlFor={this.generationId}>
                 number
                     <Input
                 type="tel"
@@ -54,6 +59,8 @@ render(){
                 pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                 title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                 required
+                // id={this.generationPhoneId}
+                // value={this.state.number}
                 onChange={this.handleInputCgange} value={number}
                 />
             </Label>
