@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import Form from "./components/form/Form";
 
- import Form from "./components/Form";
- import Filter from './components/Filter';
-import ContactsItem from './components/ContactsItem';
+ import Filter from './components/filter/Filter';
+import ContactsItem from './components/contactsItem/ContactsItem';
 import { nanoid } from 'nanoid';
 import {MainContainer, MainTitle, TitleContacts,Article} from './App.styled.js'
 

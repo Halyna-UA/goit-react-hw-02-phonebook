@@ -1,5 +1,6 @@
 import React from 'react';
-import Contacts from './Contacts'
+import Contacts from '../contacts/Contacts'
+// import Contacts from './Contacts'
 import PropTypes from 'prop-types';
 import {List, Item } from './ContactsItem.styled'
 

@@ -65,9 +65,12 @@ render(){
 }
 
 Form.propTypes = {
-    generationId: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
+    state: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired, 
+        number: PropTypes.string.isRequired, 
+    })
+    // onChange: PropTypes.func.isRequired,
   };
 
 export default Form;
