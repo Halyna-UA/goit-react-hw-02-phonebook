@@ -22,8 +22,8 @@ handleSubmit = e => {
     e.preventDefault()
     this.reset()
     this.setState({name: "", number: ""})
-    this.props.onSubmit({...this.state})
-    // this.props.onSubmit(this.state)
+    this.props.handleSubmit({...this.state})
+  
 }
 // очищення полів вводу
 reset = () => {
@@ -45,7 +45,7 @@ render(){
                 pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                 title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                 required
-                 id={this.generationId}
+                  id={this.generationId}
                 
                 value={name}
                 onChange={this.handleInputCgange} 
@@ -60,7 +60,7 @@ render(){
                 pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                 title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                 required
-                 id={this.generationPhoneId}
+                  id={this.generationPhoneId}
                 
                 value={number}
                 onChange={this.handleInputCgange} 
@@ -79,9 +79,9 @@ Form.propTypes = {
     //     name: PropTypes.string.isRequired, 
     //     number: PropTypes.string.isRequired, 
     // }),
-    generationPhoneId: PropTypes.string.isRequired,
-    generationId: PropTypes.string.isRequired, 
-     onChange: PropTypes.func.isRequired,
+    generationPhoneId: PropTypes.string,
+    generationId: PropTypes.string, 
+     onChange: PropTypes.func,
   };
 
 export default Form;

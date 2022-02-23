@@ -26,7 +26,7 @@ class App extends Component {
       // перевірка вже існуючого контакту
     const findOldContact = contacts.find((contact) => contact.name === newContact);
 
-      // якщо контакт вже існує - алерт проце повідомить, якщо ні - додасть
+      // якщо контакт вже існує - алерт проце повідомить, якщо ні - додасться
     if (findOldContact === newContact){
       return(
         
@@ -37,7 +37,7 @@ class App extends Component {
         newContact.id = nanoid();
 
         this.setState((prevState) => ({
-          contacts: [...prevState, ...newContact]
+          contacts: [...prevState.contacts, ...newContact]
         }));
       
     }
